@@ -34,6 +34,17 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
+input[type='file'] {
+  color: transparent;
+  position: absolute;
+  opacity: 0;
+  top:0%;
+  left: 20px;
+  cursor: pointer;
+  height: 80px;
+  width: 220px;
+}
+
 /* Position the content inside the overlay */
 .overlay-content {
 }
@@ -63,50 +74,51 @@
 
 .spinnerbtn {
   position: absolute;
-  top: 50px;
-  left:-150px;
+  top: 25%;
+  left:-100px;
   font-size: 36px;
-  width: 220px;
+  width: 150px;
   height: 80px;
   padding: 10px;
-  text-align:center;
+  text-align:right;
   background-color: #32a030;
   transition: 0.5s;
   border:none;
 }
 .spinnerbtn:hover {
   position: absolute;
-  top: 50px;
+  top: 25%;
   left:0px;
   font-size: 36px;
-  width: 220px;
+  width: 150px;
   height: 80px;
   padding: 10px;
   transition: 0.5s;
-  text-align:center;
+  text-align:right;
 }
 .uploadbtn {
   position: absolute;
-  top: 70%;
-  left:-150px;
-  font-size: 25px;
+  top: 75%;
+  left:-170px;
+  font-size: 32px;
   width: 220px;
   height: 80px;
   padding: 10px;
-  text-align:center;
+  text-align:right;
   background-color: #efefef;
   transition: 0.5s;
   border:none;
 }
 .uploadbtn:hover {
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 0px;
-  font-size: 25px;
-  width: 220px;
+  font-size: 32px;
+  width: 200px;
   height: 80px;
   padding: 10px;
-  text-align:center;
+  cursor: pointer;
+  text-align:right;
   background-color: #efefef;
   transition: 0.5s;
   border:none;

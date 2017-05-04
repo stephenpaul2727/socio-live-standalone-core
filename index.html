@@ -153,11 +153,12 @@
         </div>
 
             <button id="start-stop-button" class="spinnerbtn">
-                SPIN  &nbsp; &nbsp; &nbsp; <i class="fa fa-refresh" aria-hidden="true"></i>
+                SPIN   <i class="fa fa-refresh" aria-hidden="true"></i>
             </button>
       
             <button id="upload_button" class = "uploadbtn">
-                UPLOAD &nbsp; &nbsp; &nbsp; <i class="fa fa-upload" aria-hidden="true"></i>
+                <input name="upload_csv" type="file" id="upload_csv" accept=".csv"/>
+                UPLOAD  <i class="fa fa-upload" aria-hidden="true"></i>
             </button>
     </div>
 </div>
@@ -195,6 +196,8 @@
 <script src="vendor/presentation/jquery.slotmachine.min.js"></script>
 <!-- Presentation Custom -->
 <script src="js/live-demo.js"></script>
+<!-- PapaParser for CSV -->
+<script src="vendor/presentation/papaparse.min.js"></script>
 </body>
 
 </html>

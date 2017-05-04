@@ -109,6 +109,41 @@ var control = {
   winner: undefined,
   interval: undefined
 };
+//Handling the uploaded file
+var fileVar = document.getElementById("upload_csv");
+  readFile = function() {
+    var reader = new FileReader();
+    reader.onload = function() {
+      alert(reader.result);
+      //scan header fields of csv.
+      var resultdata = Papa.parse(reader.result,{header:true});
+      if(resultdata.errors.length > 0){
+        alert("unable to parse csv file. Syntax of csv may be incorrect");
+        return;
+      }
+      //verify required fields exist.
+      for(var i = 0;i<resultdata.length;i++){
+        if(resultdata.data[i].hasOwnProperty('first_name') && resultdata.data[i].hasOwnProperty('last_name') && resultdata.data[i].hasOwnProperty('info')){}
+        else{
+          alert("required fields don't exist. Please upload a csv with fields first_name, last_name and info");
+          return;
+        }
+      }
+      
+      users = {};
+      for(var i=0;i<resultdata.data.length;i++){
+          users[i+1] = new BasicUser(i+1, resultdata.data[i].first_name, resultdata.data[i].last_name, resultdata.data[i].info,"");
+      }
+      orderedUsers = [];
+      alert("data uploaded successfully");
+      closeAttendeeDrawing();
+      openAttendeeDrawing();
+    }
+    reader.readAsBinaryString(fileVar.files[0]);
+    fileVar.value = "";
+  };
+fileVar.addEventListener('change',readFile);
+
 function runControl() {
   if(control.interval) {
     clearInterval(control.interval);
@@ -140,7 +175,7 @@ function runControl() {
         var $startStopBtn = $('#start-stop-button');
         $startStopBtn.removeClass('running');
         $startStopBtn.html("SPIN");
-        $startStopBtn.append('&nbsp; &nbsp; &nbsp; ');
+        $startStopBtn.append("  ");
         $startStopBtn.append('<i class="fa fa-refresh" aria-hidden="true"></i>');
         control.stopping = false;
         clearInterval(control.interval);
@@ -175,6 +210,10 @@ function openAttendeeDrawing() {
   setupSlotMachine(users);
 
   $('#start-stop-button').off('click').on('click', function(e) {
+    
+    $('#upload_csv').click(function() {
+      $("input[type='file']").trigger('click');
+    })
 
     if(orderedUsers.length  < 6) {
       alert("You must have at least 6 users joined")
@@ -190,7 +229,6 @@ function openAttendeeDrawing() {
         var $startStopBtn = $('#start-stop-button');
         $startStopBtn.addClass('running');
         $startStopBtn.html("STOP");
-        $startStopBtn.append('&nbsp; &nbsp; &nbsp;');
         $startStopBtn.append('<i class="fa fa-ban" aria-hidden="true"></i>');
         control.winner = parseInt(Math.random() * orderedUsers.length) + 1;
         console.log("Expected Winner: " + users[control.winner].getFullName());
