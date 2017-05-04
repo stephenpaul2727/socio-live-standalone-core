@@ -140,6 +140,8 @@ function runControl() {
         var $startStopBtn = $('#start-stop-button');
         $startStopBtn.removeClass('running');
         $startStopBtn.html("SPIN");
+        $startStopBtn.append('&nbsp; &nbsp; &nbsp; ');
+        $startStopBtn.append('<i class="fa fa-refresh" aria-hidden="true"></i>');
         control.stopping = false;
         clearInterval(control.interval);
         return;
@@ -188,6 +190,8 @@ function openAttendeeDrawing() {
         var $startStopBtn = $('#start-stop-button');
         $startStopBtn.addClass('running');
         $startStopBtn.html("STOP");
+        $startStopBtn.append('&nbsp; &nbsp; &nbsp;');
+        $startStopBtn.append('<i class="fa fa-ban" aria-hidden="true"></i>');
         control.winner = parseInt(Math.random() * orderedUsers.length) + 1;
         console.log("Expected Winner: " + users[control.winner].getFullName());
         runControl()
@@ -222,7 +226,6 @@ function closeAttendeeDrawing() {
   clearInterval(control.interval);
   var $startStopBtn = $('#start-stop-button');
   $startStopBtn.removeClass('running');
-  $startStopBtn.html('SPIN');
 }
 
 var attendees = new CountUp("attendeesCount", 0, 0, 0, 2.5, options);

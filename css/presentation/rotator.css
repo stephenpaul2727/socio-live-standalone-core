@@ -56,10 +56,62 @@
 /* Position the close button (top right corner) */
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 45px;
     font-size: 60px;
 }
+
+.spinnerbtn {
+  position: absolute;
+  top: 50px;
+  left:-150px;
+  font-size: 36px;
+  width: 220px;
+  height: 80px;
+  padding: 10px;
+  text-align:center;
+  background-color: #32a030;
+  transition: 0.5s;
+  border:none;
+}
+.spinnerbtn:hover {
+  position: absolute;
+  top: 50px;
+  left:0px;
+  font-size: 36px;
+  width: 220px;
+  height: 80px;
+  padding: 10px;
+  transition: 0.5s;
+  text-align:center;
+}
+.uploadbtn {
+  position: absolute;
+  top: 70%;
+  left:-150px;
+  font-size: 25px;
+  width: 220px;
+  height: 80px;
+  padding: 10px;
+  text-align:center;
+  background-color: #efefef;
+  transition: 0.5s;
+  border:none;
+}
+.uploadbtn:hover {
+  position: absolute;
+  top: 70%;
+  left: 0px;
+  font-size: 25px;
+  width: 220px;
+  height: 80px;
+  padding: 10px;
+  text-align:center;
+  background-color: #efefef;
+  transition: 0.5s;
+  border:none;
+}
+
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
@@ -101,8 +153,8 @@
 
 
 .running {
-    border-color: red;
-    background-color: red;
+    border-color: #d38628;
+    background-color: #d38628;
 }
 
 #carousel-wrapper,

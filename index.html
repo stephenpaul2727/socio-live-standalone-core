@@ -138,9 +138,9 @@
 
 <!-- OVERLAY -->
 <div id="attendee-drawing-overlay" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" style="z-index: 1000" onclick="closeAttendeeDrawing()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" style="z-index: 1000;text-decoration:none" onclick="closeAttendeeDrawing()">&times;</a>
 
-    <div class="overlay-content container" style="margin-top: 15%;">
+    <div class="overlay-content container" style="margin-top: 20%;">
         <div class="col-md-12 col-lg-8 col-lg-offset-2" id="carousel-wrapper">
             <div id="carousel">
                 <figure></figure>
@@ -152,11 +152,13 @@
             </div>
         </div>
 
-        <div class="col-md-12 col-lg-8 col-lg-offset-2" style="text-align: center; margin-top: 22%; margin-bottom: 5%;">
-            <button id="start-stop-button" class="start-stop-button">
-                SPIN
+            <button id="start-stop-button" class="spinnerbtn">
+                SPIN  &nbsp; &nbsp; &nbsp; <i class="fa fa-refresh" aria-hidden="true"></i>
             </button>
-        </div>
+      
+            <button id="upload_button" class = "uploadbtn">
+                UPLOAD &nbsp; &nbsp; &nbsp; <i class="fa fa-upload" aria-hidden="true"></i>
+            </button>
     </div>
 </div>
 

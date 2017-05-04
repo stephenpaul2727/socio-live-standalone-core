@@ -195,6 +195,7 @@ header .mouse a {
     -moz-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
 }
+
 #slideout_inner {
     position: fixed;
     top: 40px;
@@ -212,16 +213,19 @@ header .mouse a {
     -moz-border-radius: 0 0 5px 0;
     border-radius: 0 5px 5px 0;
 }
+
 #slideout_inner textarea {
     width: 190px;
     height: 100px;
     margin-bottom: 6px;
 }
+
 #slideout.hoverClass {
     left: 0px;
     background-color: transparent;
     margin-left: -30px;
 }
+
 #slideout.hoverClass #slideout_inner {
     left: 0;
 }
