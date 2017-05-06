@@ -39,10 +39,10 @@ input[type='file'] {
   position: absolute;
   opacity: 0;
   top:0%;
-  left: 20px;
+  left: 0px;
   cursor: pointer;
   height: 80px;
-  width: 220px;
+  width: 200px;
 }
 
 /* Position the content inside the overlay */
