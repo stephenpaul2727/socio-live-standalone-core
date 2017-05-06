@@ -114,7 +114,6 @@ var fileVar = document.getElementById("upload_csv");
   readFile = function() {
     var reader = new FileReader();
     reader.onload = function() {
-      alert(reader.result);
       //scan header fields of csv.
       var resultdata = Papa.parse(reader.result,{header:true});
       if(resultdata.errors.length > 0){
@@ -122,11 +121,23 @@ var fileVar = document.getElementById("upload_csv");
         return;
       }
       //verify required fields exist.
-      for(var i = 0;i<resultdata.length;i++){
+      for(var i = 0;i<resultdata.data.length;i++){
         if(resultdata.data[i].hasOwnProperty('first_name') && resultdata.data[i].hasOwnProperty('last_name') && resultdata.data[i].hasOwnProperty('info')){}
         else{
           alert("required fields don't exist. Please upload a csv with fields first_name, last_name and info");
           return;
+        }
+      }
+      //Prevent Data Duplication.
+      for(var i=0;i<resultdata.data.length;i++){
+        var item_searched_one = resultdata.data[i].first_name;
+        var item_searched_two = resultdata.data[i].last_name;
+        var item_searched_three = resultdata.data[i].info;
+        for(var j=i+1;j<resultdata.data.length;j++){
+          if(item_searched_one == resultdata.data[j].first_name && item_searched_two == resultdata.data[j].last_name && item_searched_three == resultdata.data[j].info){
+            alert("Duplication of data Encountered at position "+j+" Please Verify.");
+            return;
+          }
         }
       }
       
